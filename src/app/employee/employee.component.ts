@@ -63,6 +63,8 @@ export class EmployeeComponent implements OnInit {
 
   saveEmployee() {
 
+
+    //testing on the response code if an employee exist
     if (this.responseCodeEmployeeExist === 404) {
 
       if (this.cin === '-1') {
