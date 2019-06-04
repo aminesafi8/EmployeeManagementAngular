@@ -1,0 +1,17 @@
+<h1>Login !</h1>
+<div class="container">
+
+
+    <div class="alert alert-danger" *ngIf='invalidLogin'><b>{{errorMessage}}</b></div>
+
+
+  <form (ngSubmit)="!loginForm.invalid && handleLogin()" #loginForm="ngForm">
+  <div>
+        Username : <input type="text" name="login" [(ngModel)]="login">
+        Password : <input type="password" name="password" [(ngModel)]="password">
+
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
+
+  </form>
+</div>

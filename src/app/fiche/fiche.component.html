@@ -1,0 +1,86 @@
+<h1>Ajouter Fiche</h1>
+<div class="container">
+
+
+
+
+
+
+  <div class="alert alert-warning" *ngIf="ficheForm.dirty && ficheForm.invalid">3ammar el form kemel</div>
+  <div class="alert alert-warning" *ngIf="alreadyHasFiche">{{msgAlreadyHasFiche}}</div>
+
+  <form (ngSubmit)="!ficheForm.invalid && saveFiche()" #ficheForm="ngForm">
+    <fieldset class="form-group">
+      <label>salaireBase</label>
+      <input type="text" [(ngModel)]="fiche.salaireBase" class="form-control" name="salaireBase" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>salaireBrut</label>
+      <input type="text" [(ngModel)]="fiche.salaireBrut" class="form-control" name="salaireBrut" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>salaireImposable</label>
+      <input type="text" [(ngModel)]="fiche.salaireImposable" class="form-control" name="salaireImposable"
+             required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>importSurRevenue</label>
+      <input type="text" [(ngModel)]="fiche.importSurRevenue" class="form-control" name="importSurRevenue"
+             required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>salaireNet</label>
+      <input type="text" [(ngModel)]="fiche.salaireNet" class="form-control" name="salaireNet" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>primePresence</label>
+      <input type="text" [(ngModel)]="fiche.primePresence" class="form-control" name="primePresence"
+             required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>primeFonction</label>
+      <input type="text" [(ngModel)]="fiche.primeFonction" class="form-control" name="primeFonction"
+             required="required">
+    </fieldset>
+    <fieldset>
+      <label>primeProduction</label>
+      <input type="text" [(ngModel)]="fiche.primeProduction" class="form-control" name="primeProduction"
+             required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>primeVoiture</label>
+      <input type="text" [(ngModel)]="fiche.primeVoiture" class="form-control" name="primeVoiture" required="required">
+    </fieldset>
+
+
+    <fieldset class="form-group">
+      <label>Employee</label>
+
+      <select id="employee" name="employee" [(ngModel)]="selectedEmloyee" class="form-control"
+              (change)="getSelectedEmployee(($event))">
+        <option *ngFor="let item of employees" [value]="item.cin">
+          {{item.nom}} {{item.prenom}}
+        </option>
+      </select>
+
+
+    </fieldset>
+
+
+
+    <br>
+    <button class="btn btn-success" type="submit">Save Fiche</button>
+  </form>
+</div>

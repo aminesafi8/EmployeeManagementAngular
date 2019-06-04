@@ -1,0 +1,56 @@
+<h1>Ajouter Conge</h1>
+<div class="container">
+
+
+  <div class="alert alert-warning" *ngIf="congeForm.dirty && congeForm.invalid">3ammar el form kemel</div>
+
+
+  <form (ngSubmit)="!congeForm.invalid && saveConge()" #congeForm="ngForm">
+    <fieldset>
+      <label>date Debut</label>
+      <input type="date" [ngModel]="conge.dateDebut | date:'yyyy-MM-dd'" (ngModelChange)="conge.dateDebut = $event"
+             class="form-control" name="dateDebut" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>date Fin</label>
+      <input type="date" [ngModel]="conge.dateFin | date:'yyyy-MM-dd'" (ngModelChange)="conge.dateFin = $event"
+             class="form-control" name="dateFin" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>Type</label>
+      <input type="text" [(ngModel)]="conge.type" class="form-control" name="type"
+             required="required">
+    </fieldset>
+
+
+ <!--   <fieldset class="form-group">
+      <label>Raison</label>
+    <select id="type" name="type" [(ngModel)]="selectedType" class="form-control"
+            (change)="getSelectedType(($event))">
+      <option value="MALADIE">MALADIE</option>
+      <option value="MATERNITE">MATERNITE</option>
+      <option value="SCIENTIFIQUE">SCIENTIFIQUE</option>
+    </select>
+    </fieldset>
+-->
+    <fieldset class="form-group">
+      <label>Employee</label>
+
+      <select id="employee" name="employee" [(ngModel)]="selectedEmloyee" class="form-control"
+              (change)="getSelectedEmployee(($event))">
+        <option *ngFor="let item of employees" [value]="item.cin">
+          {{item.nom}} {{item.prenom}}
+        </option>
+      </select>
+
+
+    </fieldset>
+
+
+    <br>
+    <button class="btn btn-success" type="submit">Save Conge</button>
+  </form>
+</div>

@@ -1,0 +1,123 @@
+<br>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="alert alert-success" *ngIf='saved'>{{saved}}</div>
+
+<form>
+
+
+  <fieldset class="form-group">
+    <label>Search for employee</label>
+    <br>
+    <input type="text" [ngModel]="searchStr" id="search" name="search" (ngModelChange)="searchEmployee($event)"/>
+  </fieldset>
+
+
+</form>
+<br>
+<br>
+
+
+<div class="col-md-6"></div>
+<div class="col-md-3">
+  <ul class="list-group" *ngIf="employeeExist">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      cin
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.cin}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      nom & prénom
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.nom}} {{foundedEmployee.prenom}}</span>
+    </li>
+
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      adresse
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.adresse}}</span>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      telephone
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.telephone}}</span>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      dateNaissance
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.dateNaissance}}</span>
+    </li>
+
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      sexe
+      <span class="badge badge-primary badge-pill">{{foundedEmployee.sexe}}</span>
+    </li>
+
+
+  </ul>
+
+</div>
+<div class="col-md-3"></div>
+<br>
+<br>
+
+<div class="table-responsive-sm">
+  <table class="table">
+    <caption>All Employees</caption>
+    <thead>
+    <tr>
+
+      <th>Cin</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Login</th>
+      <th>Adresse</th>
+      <th>Telephone</th>
+      <th>Sexe</th>
+      <th>dateNaissance</th>
+      <th>lieuNaissance</th>
+      <th>situation</th>
+      <th>nbEnfant</th>
+      <th>dateRecrutement</th>
+      <th>echelon</th>
+      <th>fonction</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+
+    <tr *ngFor="let employee of employees">
+
+      <td>{{employee.cin}}</td>
+      <td>{{employee.nom}}</td>
+      <td>{{employee.prenom}}</td>
+      <td>{{employee.login}}</td>
+      <td>{{employee.adresse}}</td>
+      <td>{{employee.telephone}}</td>
+      <td>{{employee.sexe}}</td>
+      <td>{{employee.dateNaissance | date }}</td>
+      <td>{{employee.lieuNaissance}}</td>
+      <td>{{employee.situation}}</td>
+      <td>{{employee.nbEnfant}}</td>
+      <td>{{employee.dateRecrutement| date}}</td>
+      <td>{{employee.echelon}}</td>
+      <td>{{employee.fonction}}</td>
+      <td>
+        <button (click)="updateEmployee(employee)" class="btn btn-warning">Edit</button>
+      </td>
+      <td>
+        <button (click)="deleteEmployee(employee)" class="btn btn-danger">Delete</button>
+      </td>
+
+    </tr>
+    </tbody>
+
+
+    <div class="row">
+      <button (click)="addEmployee()" class="btn btn-success">Add</button>
+    </div>
+
+  </table>
+</div>

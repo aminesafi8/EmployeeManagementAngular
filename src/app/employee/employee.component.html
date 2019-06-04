@@ -1,0 +1,106 @@
+<h1>Employee</h1>
+<div class="container">
+
+
+
+
+
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && employeeForm.invalid">3ammar el form kemel</div>
+  <div class="alert alert-danger" *ngIf='responseCodeEmployeeExist===200'>{{employeeExistMessage}}</div>
+
+
+
+<h2 *ngIf="employeeExist">Employe Already exist</h2>
+
+
+
+
+<form (ngSubmit)="!employeeForm.invalid && saveEmployee()" #employeeForm="ngForm">
+    <fieldset class="form-group">
+      <label>cin</label>
+      <input type="text" [(ngModel)]="user.cin" class="form-control" name="cin" required="required" (ngModelChange)="searchEmployee($event)">
+    </fieldset>
+
+
+    <fieldset>
+      <label>nom</label>
+      <input type="text"  [(ngModel)]="user.nom" class="form-control" name="nom" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>prenom</label>
+      <input type="text"  [(ngModel)]="user.prenom" class="form-control" name="prenom" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>login</label>
+      <input type="text"  [(ngModel)]="user.login" class="form-control" name="login" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>password</label>
+      <input type="password"  [(ngModel)]="user.password" class="form-control" name="password" required="required">
+    </fieldset>
+
+
+
+    <fieldset>
+      <label>adresse</label>
+      <input type="text" [(ngModel)]="user.adresse" class="form-control" name="adresse" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>telephone</label>
+      <input type="text" [(ngModel)]="user.telephone" class="form-control" name="telephone" required="required">
+    </fieldset>
+    <fieldset>
+      <label>sexe</label>
+      <input type="text" [(ngModel)]="user.sexe" class="form-control" name="sexe" required="required">
+    </fieldset>
+
+
+
+
+    <fieldset>
+      <label>dateNaissance</label>
+      <input type="date" [ngModel]="user.dateNaissance | date:'yyyy-MM-dd'" (ngModelChange)="user.dateNaissance = $event" class="form-control" name="dateNaissance" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>lieuNaissance</label>
+      <input type="text" [(ngModel)]="user.lieuNaissance" class="form-control" name="lieuNaissance" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>situation</label>
+      <input type="text" [(ngModel)]="user.situation" class="form-control" name="situation" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>nbEnfant</label>
+      <input type="text" [(ngModel)]="user.nbEnfant" class="form-control" name="nbEnfant" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>dateRecrutement</label>
+      <input type="date" [ngModel]="user.dateRecrutement | date:'yyyy-MM-dd'" (ngModelChange)="user.dateRecrutement = $event" class="form-control" name="dateRecrutement" required="required">
+    </fieldset>
+
+
+    <fieldset>
+      <label>echelon</label>
+      <input type="text" [(ngModel)]="user.echelon" class="form-control" name="echelon" required="required">
+    </fieldset>
+
+    <fieldset>
+      <label>fonction</label>
+      <input type="text" [(ngModel)]="user.fonction" class="form-control" name="fonction" required="required">
+    </fieldset>
+
+    <br>
+    <button class="btn btn-success" type="submit">Save Employee</button>
+</form>
+</div>

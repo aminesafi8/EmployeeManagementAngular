@@ -1,0 +1,53 @@
+<br>
+
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="table-responsive-sm">
+  <table class="table">
+  <caption>All Fiches</caption>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>salaireBase</th>
+      <th>salaireBrut</th>
+      <th>salaireImposable</th>
+      <th>importSurRevenue</th>
+      <th>salaireNet</th>
+      <th>primePresence</th>
+      <th>primeFonction</th>
+      <th>primeProduction</th>
+      <th>primeVoiture</th>
+
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+
+    <tr *ngFor="let fiche of fiches">
+      <b><td>{{fiche.user.nom}} {{fiche.user.prenom}}</td></b>
+      <td>{{fiche.salaireBase}}</td>
+      <td>{{fiche.salaireBrut}}</td>
+      <td>{{fiche.salaireImposable}}</td>
+      <td>{{fiche.importSurRevenue}}</td>
+      <td>{{fiche.salaireNet}}</td>
+      <td>{{fiche.primePresence}}</td>
+      <td>{{fiche.primeFonction}}</td>
+      <td>{{fiche.primeProduction}}</td>
+      <td>{{fiche.primeVoiture}}</td>
+
+      <td><button (click)="updateFiche(fiche)" class="btn btn-warning">Edit</button></td>
+      <td><button (click)="deleteFiche(fiche)" class="btn btn-danger">Delete</button></td>
+  
+    </tr>
+  </tbody>
+
+  <div class="row">
+    <button (click)="addFiche()" class="btn btn-success">Add Fiche</button>
+  </div>
+
+  </table></div>

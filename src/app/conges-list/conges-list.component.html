@@ -1,0 +1,42 @@
+<br>
+
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="table-responsive-sm">
+  <table class="table">
+  <caption>Tout les congés</caption>
+  <thead>
+  <tr>
+    <th>Employee</th>
+    <th>dateDebut</th>
+    <th>dateFin</th>
+    <th>type</th>
+
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+
+  <tr *ngFor="let conge of conges">
+    <b><td>{{conge.user.nom}} {{conge.user.prenom}}</td></b>
+    <td>{{conge.dateDebut}}</td>
+    <td>{{conge.dateFin}}</td>
+    <td>{{conge.type}}</td>
+
+
+    <td><button (click)="updateConge(conge)" class="btn btn-warning">Edit</button></td>
+    <td><button (click)="deleteConge(conge)" class="btn btn-danger">Delete</button></td>
+
+  </tr>
+  </tbody>
+
+  <div class="row">
+    <button (click)="addConge()" class="btn btn-success">Add Conge</button>
+  </div>
+
+  </table></div>

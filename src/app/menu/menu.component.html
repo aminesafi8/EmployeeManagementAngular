@@ -1,0 +1,26 @@
+<header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <div><a href="http://www.aminesafi.tn" class="navbar-brand">Skander PATO</a></div>
+                <ul class="navbar-nav">
+
+                        <li><a *ngIf="this.authentication.isUserLoggedIn()" routerLink="/welcome"
+                                        class="nav-link">Home</a></li>
+                        <li><a *ngIf="this.authentication.isUserLoggedIn()" routerLink="/employees"
+                                        class="nav-link">Employees</a></li>
+                        <li><a *ngIf="this.authentication.isUserLoggedIn()" routerLink="/fiches"
+                                        class="nav-link">Fiches</a></li>
+                  <li><a *ngIf="this.authentication.isUserLoggedIn()" routerLink="/conges"
+                                                                      class="nav-link">Conges</a></li>
+                </ul>
+
+                <ul class="navbar-nav navbar-collapse justify-content-end">
+
+                        <li><a *ngIf="!this.authentication.isUserLoggedIn()" routerLink="/login"
+                                        class="nav-link">Login</a></li>
+                        <li><a *ngIf="this.authentication.isUserLoggedIn()" routerLink="/logout"
+                                        class="nav-link">Logout</a></li>
+                </ul>
+
+
+        </nav>
+</header>
